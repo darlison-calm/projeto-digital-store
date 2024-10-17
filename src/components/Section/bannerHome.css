@@ -1,0 +1,7 @@
+@import url(../../globalStyles/ColorsVariables.css);
+
+.bannerSection {
+  background-color: var(--primary);
+  color: red;
+  width: 100vw;
+}
