@@ -2,3 +2,7 @@
     width: 60% !important;
 }
 
+.color-primary {
+    color: var(--primary) !important;
+}
+
