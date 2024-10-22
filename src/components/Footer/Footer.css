@@ -6,12 +6,17 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    align-items: center;
 }
 
 .social {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    & .logo {
+        width: 75%;
+        height: 75%;
+    }
     & .icons {
         display: flex;
         flex-direction: row;
@@ -48,4 +53,46 @@ footer {
 
 .direitos {
     text-align: center;
+    & p {
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+footer {
+    display: flex;
+    flex-direction: column;
+}
+.top {
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+}
+.social {
+    & .logo {
+        width: 60%;
+        height: 60%;
+    }
+}
+}
+
+/* Desktop */
+@media screen and (min-width: 992px) {
+footer {
+    display: flex;
+    flex-direction: column;
+}
+.top {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+}
+.social {
+    & .logo {
+        width: 40%;
+        height: 40%;
+    }
+}
 }
