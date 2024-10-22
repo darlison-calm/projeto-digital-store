@@ -18,7 +18,7 @@ const Header = () => {
             <img src={logo} alt="" className="w-60 w-md-50" />
         </a>
 
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center px-2">
           <button 
             className="btn btn-link p-0 me-3"
             aria-label="Search"
