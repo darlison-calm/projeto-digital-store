@@ -1,4 +1,4 @@
-.w-60 {
+.w-image-size {
     width: 60% !important;
 }
 
@@ -44,3 +44,22 @@
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1; 
 }
+
+.text-underline {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+/* DESKTOP */
+
+@media only screen and (min-width: 992px) {
+    .w-image-size {
+        width: 80% !important;
+    }
+
+    .nav-bar {
+        display: flex;
+       align-items: center;
+    }
+    
+  }

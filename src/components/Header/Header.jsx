@@ -23,7 +23,7 @@ const Header = () => {
           </button>
 
           <a className="navbar-brand m-0 text-danger fw-bold d-flex justify-content-center" href="/">
-              <img src={logo} alt="" className="w-60"/>
+              <img src={logo} alt="" className="w-image-size"/>
           </a>
 
           <div className="d-flex align-items-center pe-1">
@@ -31,7 +31,7 @@ const Header = () => {
               className="btn btn-link p-0 me-2"
               aria-label="Search"
             >
-              <Search className='color-light-gray-2' size={20} />
+              <Search className='color-light-gray-2 d-lg-none' size={20} />
             </button>
             
             <button 
@@ -62,7 +62,7 @@ const Header = () => {
             <div className="buttons-container">
               <hr />
               <button type="button" className="btn background-primary text-light w-50">Entrar</button>
-              <button type="button" className="btn text-dark w-50">Cadastre-se</button>
+              <button type="button" className="btn text-dark w-50 text-underline">Cadastre-se</button>
             </div>
           </div>
           </>
