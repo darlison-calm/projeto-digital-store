@@ -15,7 +15,6 @@ footer {
     gap: 1em;
     & .logo {
         width: 75%;
-        height: 75%;
     }
     & .icons {
         display: flex;
@@ -64,11 +63,13 @@ footer {
 footer {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
 }
 .top {
     display: flex;
     flex-direction: row;
     gap: 2em;
+    align-items: flex-start;
 }
 .social {
     & .logo {
@@ -83,16 +84,47 @@ footer {
 footer {
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    padding: 1em;
+    padding-top: 5em;
 }
 .top {
     display: flex;
     flex-direction: row;
     gap: 1em;
+    width: 90%;
 }
 .social {
+    margin-right: 8em;
     & .logo {
-        width: 40%;
-        height: 40%;
+        width: 50%;
+        height: 50%;
     }
+}
+.info-cat {
+    margin-right: 6em;
+    gap: 4em;
+    & .info {
+        width: 8em;
+        & h3 {
+            padding-bottom: 1em;
+        }
+    }
+    & .cat h3{
+        padding-bottom: 1em;
+    }
+    & a {
+        line-height: 1.6;
+    }
+}
+
+.contato {        
+    & h3 {
+        padding-bottom: 1em;
+    }
+}
+
+.direitos {
+    width: 90%;
 }
 }
