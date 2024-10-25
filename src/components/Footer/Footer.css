@@ -12,14 +12,18 @@ footer {
 .social {
     display: flex;
     flex-direction: column;
+    padding-top: 2em;
+    padding-bottom: 2em;
     gap: 1em;
     & .logo {
-        width: 75%;
+        width: 75%; 
+        padding-bottom: 1em;
     }
     & .icons {
         display: flex;
         flex-direction: row;
         gap: 3em;
+        padding-top: 1em;
     }
 }
 
@@ -27,7 +31,7 @@ footer {
     display: flex;
     gap: 3em;
     flex-direction: row;
-
+    padding-bottom: 2.5em;
     & .info {
         display: flex;
         flex-direction: column;
@@ -52,6 +56,7 @@ footer {
 
 .direitos {
     text-align: center;
+    width: 98%;
     & p {
         padding-top: 2em;
         padding-bottom: 2em;
@@ -75,7 +80,17 @@ footer {
     & .logo {
         width: 60%;
         height: 60%;
+        padding-bottom: 0.5em;
     }
+    & p {
+        padding-bottom: 0.5em;
+    }
+}
+.info-cat h3{
+    padding-bottom: 0.7em;
+}
+.contato {
+    margin-left: 0.5em;
 }
 }
 
@@ -93,12 +108,17 @@ footer {
     flex-direction: row;
     gap: 1em;
     width: 90%;
+    padding-bottom: 2em;
 }
 .social {
-    margin-right: 8em;
+    margin-right: 7em;
     & .logo {
         width: 50%;
         height: 50%;
+        padding-bottom: 1em;
+    }
+    & p {
+        padding-bottom: 1em;
     }
 }
 .info-cat {
@@ -120,7 +140,7 @@ footer {
 
 .contato {        
     & h3 {
-        padding-bottom: 1em;
+        padding-bottom: 0.5em;
     }
 }
 
