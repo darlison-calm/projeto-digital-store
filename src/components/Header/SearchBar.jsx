@@ -1,33 +1,18 @@
-import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import '@globalStyles/reset.css'
 
-const SearchBar = () => {
-  const [query, setQuery] = useState('');
-
-  const handleChange = (e) => {
-    setQuery(e.target.value);
-  };
-
-  const handleSearch = (e) => {
-    if (e.key === 'Enter') {
-      console.log("Searching for:", query);
-      // Implement your search logic here
-    }
+import { Search } from "lucide-react";
+export const SearchBar = ({className}) => {
+  const handleSubmit = (event) => {
+    event.preventDefault();
+  
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={query}
-        onChange={handleChange}
-        onKeyPress={handleSearch}
-        placeholder="Search..."
-        style={{ backgroundColor: 'white', border: '1px solid #ced4da' }}
-      />
-    </div>
+    <form className={`searchBar ${className || ''}`}onSubmit={handleSubmit}>
+      <input type="text" name="search" placeholder="Pesquisar produto..." />
+      <button type="submit">
+        <Search color="#CCCCCC"></Search>
+      </button>
+    </form>
   );
 };
-
-export default SearchBar;
