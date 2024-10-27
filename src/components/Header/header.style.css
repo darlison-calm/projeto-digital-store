@@ -1,7 +1,10 @@
-.w-image-size {
-    width: 50% !important;
+header {
+    padding: 0 35px !important;
 }
 
+.links {
+    padding-left: 40px !important;
+}
 
 .color-primary {
     color: var(--primary) !important;
@@ -20,31 +23,6 @@
     top: 45%;
 }
 
-.mobile-menu {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    z-index: 2;
-    width: 80%;
-    height: 100%;
-
-    & a {
-        text-decoration: none;
-    }   
-}
-
-.overlay {
-    position: fixed;
-    top: 80px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1; 
-}
 
 .text-underline {
     text-decoration: underline;
@@ -106,18 +84,13 @@
     }
   }
 
-/* DESKTOP */
 
-@media screen and (min-width:992px) {
-    .right-section {
-        padding-right: 4rem !important;
-    }
-
-    .buttons-container {
-        margin-right: 2.5rem;
-        & button {
-            width: 112px !important;
-        }
+   
+.buttons-container {
+    margin-right: 2.5rem;
+    & button {
+        width: 112px !important;
     }
 }
+
 

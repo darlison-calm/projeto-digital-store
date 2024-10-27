@@ -1,7 +1,7 @@
 
 const EntrarECadastroButtons = ({ button1Order, button2Order, className}) => {
   return (
-    <div className={`buttons-container ${className || ''}`}>       
+    <div className={`buttons-container d-flex ${className || ''}`}>       
       <button type="button" className="btn background-primary text-light w-50" style={{ order: button1Order }}>
         Entrar
       </button>
