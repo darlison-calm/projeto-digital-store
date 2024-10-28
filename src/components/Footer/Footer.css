@@ -101,9 +101,9 @@ footer {
     flex-direction: column;
     justify-content: flex-start;
     position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 .top {
     display: flex;
@@ -114,6 +114,7 @@ footer {
 }
 .social {
     margin-right: 7em;
+    
     & .logo {
         width: 50%;
         height: 50%;

@@ -3,7 +3,7 @@ header {
 }
 
 .links {
-    padding-left: 40px !important;
+    padding-left: 4rem !important;
 }
 
 .color-primary {
@@ -73,16 +73,10 @@ header {
     }
 }
 
-/* TABLET */
-@media only screen and (min-width: 700px) {
-    .w-image-size {
-        width:70% !important;
-    }
-
     a {
         color: black;
     }
-  }
+
 
 
    
