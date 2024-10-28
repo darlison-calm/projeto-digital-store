@@ -1,5 +1,15 @@
 header {
     padding: 0 35px !important;
+    width: 100%;
+}
+
+.top {
+    width: 90%;
+}
+
+
+.logo {
+    width: 80%;
 }
 
 .links {
