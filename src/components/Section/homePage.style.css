@@ -1,0 +1,41 @@
+.homePageBanner {
+  background-color: var(--light-gray-3);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  & .tenis-banner {
+    margin-top: -5rem;
+    transform: rotate(-20deg);
+    transition: transform 0.5s;
+  }
+
+  & .ornamento {
+    align-self: flex-start;
+    margin-top: 4rem;
+  }
+  
+}
+
+.banner {
+  width: 90%;
+  padding: 0px 50px;
+  margin-top: -5rem;
+  & p {
+    font-size: large;
+    color: var(--warning);
+  }
+
+  & h1 {
+    font-weight: bolder;
+    font-size: 4rem;
+    color: var(--dak-gray);
+  }
+
+  & p:nth-of-type(2) {
+    color: var(--dark-gray-3);
+  }
+
+}

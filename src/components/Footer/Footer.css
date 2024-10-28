@@ -2,11 +2,11 @@ footer {
     background-color: var(--dark-gray);
     color: var(--white);
     width: 100vw;
-    padding: 0 10px;
+    padding: 0 35px !important;
     display: flex;
     flex-direction: column;
-    gap: 1em;
     align-items: center;
+    padding-top: 35px !important;
 }
 
 .social {
@@ -56,7 +56,7 @@ footer {
 
 .direitos {
     text-align: center;
-    width: 98%;
+    width: 90%;
     & p {
         padding-top: 2em;
         padding-bottom: 2em;
@@ -100,16 +100,11 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
 }
 .top {
     display: flex;
     flex-direction: row;
     gap: 1em;
-    width: 90%;
     padding-top: 1.8rem;
 }
 .social {
