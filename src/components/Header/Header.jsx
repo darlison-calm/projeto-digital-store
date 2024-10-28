@@ -24,7 +24,7 @@ const Header = () => {
               </div>
               <SearchBar className=""/>
               <div className="d-flex justify-content-end gap-4">
-                <EntrarECadastroButtons button1Order={2} button2Order={0} className="gap-2"/>
+                <EntrarECadastroButtons button1Order={2} button2Order={0} className="gap-4"/>
                 <ShoppingCartButton className="gap-4"/>
               </div>
             </div>
