@@ -1,13 +1,23 @@
-import Header from '../src/components/Header/Header'
-import Footer from "./components/Footer/Footer";
+import Header from './components/Header/Header.jsx'
+import Footer from "./components/Footer/Footer.jsx";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Home from './pages/Home.jsx'
+import Login from './pages/Login.jsx'
 import { HomePageBanner } from './components/Section/HomePageBanner';
 
 function App() {
     return (
         <>
-        <Header></Header>
-        <HomePageBanner></HomePageBanner>
-        <Footer></Footer>
+            <Router>
+                <div>
+                    <Header />
+                    <Routes>
+                        <Route path='/home' element={<Home />}><HomePageBanner></HomePageBanner></Route>
+                        <Route path='/login' element={<Login />}></Route>
+                    </Routes>
+                    <Footer />
+                </div>
+            </Router>
         </>
     );
 }
