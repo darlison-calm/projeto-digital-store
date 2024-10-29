@@ -38,4 +38,11 @@
     color: var(--dark-gray-3);
   }
 
+  & button {
+    width: 35%;
+    color: white !important;
+    font-weight: 600;
+    background-color: var(--primary);
+  }
+
 }

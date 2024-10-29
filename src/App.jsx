@@ -3,7 +3,7 @@ import Footer from "./components/Footer/Footer.jsx";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
-import { HomePageBanner } from './components/Section/HomePageBanner';
+
 
 function App() {
     return (
@@ -12,10 +12,10 @@ function App() {
                 <div>
                     <Header />
                     <Routes>
-                        <Route path='/home' element={<Home />}></Route>
+                        <Route path='/' element={<Home />}></Route>
                         <Route path='/login' element={<Login />}></Route>
                     </Routes>
-                    <HomePageBanner/>
+                    
                     <Footer />
                 </div>
             </Router>

@@ -17,7 +17,7 @@ const Header = () => {
               <div className="d-flex flex-column gap-4 layout">
                 <img src={logo} alt="" className='logo'/>
                 <div className="d-flex gap-4 mt-3">
-                <Link to='/home' className="text-decoration-none">Home</Link>
+                <Link to='/' className="text-decoration-none">Home</Link>
                 <Link to="/produtos" className="text-decoration-none">Produtos</Link>
                 <Link to="/categorias" className="text-decoration-none">Categorias</Link>
                 <Link to="/meus-pedidos" className="text-decoration-none">Meus Pedidos</Link>
