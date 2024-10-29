@@ -12,9 +12,10 @@ function App() {
                 <div>
                     <Header />
                     <Routes>
-                        <Route path='/home' element={<Home />}><HomePageBanner></HomePageBanner></Route>
+                        <Route path='/home' element={<Home />}></Route>
                         <Route path='/login' element={<Login />}></Route>
                     </Routes>
+                    <HomePageBanner/>
                     <Footer />
                 </div>
             </Router>
