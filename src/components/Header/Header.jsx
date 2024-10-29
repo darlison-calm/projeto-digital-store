@@ -6,7 +6,8 @@ import '@globalStyles/ColorsVariables.css'
 import React, { useState } from 'react';
 import { ShoppingCartButton } from './shoppingCart';
 import EntrarECadastroButtons from './EntrarECadastroButtons';
-import {SearchBar} from './SearchBar';
+import { SearchBar } from './SearchBar';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -16,10 +17,10 @@ const Header = () => {
               <div className="d-flex flex-column gap-4">
                 <img src={logo} alt="" className='logo'/>
                 <div className="d-flex gap-4 mt-3">
-                  <a href="/" className="text-decoration-none">Home</a>
-                  <a href="/produtos" className="text-decoration-none">Produtos</a>
-                  <a href="/categorias" className="text-decoration-none">Categorias</a>
-                  <a href="/meus-pedidos" className="text-decoration-none">Meus Pedidos</a>
+                <Link to='/home' className="text-decoration-none">Home</Link>
+                <Link to="/produtos" className="text-decoration-none">Produtos</Link>
+                <Link to="/categorias" className="text-decoration-none">Categorias</Link>
+                <Link to="/meus-pedidos" className="text-decoration-none">Meus Pedidos</Link>
                 </div>
               </div>
               <SearchBar className=""/>
