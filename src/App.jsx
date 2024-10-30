@@ -15,7 +15,6 @@ function App() {
                         <Route path='/' element={<Home />}></Route>
                         <Route path='/login' element={<Login />}></Route>
                     </Routes>
-                    
                     <Footer />
                 </div>
             </Router>
