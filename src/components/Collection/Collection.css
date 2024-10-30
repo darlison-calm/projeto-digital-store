@@ -1,0 +1,46 @@
+.collection {
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    width: 90%;
+}
+
+.card-custom {
+    background-size: cover !important;
+    background-position: center !important;
+    width: 500px;
+    height: 290px;
+}
+
+.card-1 {
+    background-image: url("../../../public/collection-1.png");
+}
+
+.card-2 {
+    background-image: url("../../../public/collection-2.png");
+}
+
+.card-3 {
+    background-image: url("../../../public/collection-3.png");
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 3rem;
+    & .card-title {
+        background-color: #E7FF86;
+        padding: 0.3rem;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 1rem;
+        font-weight: bold;
+        width: 20%;
+    }
+    & button {
+        width: 40%;
+        background-color: var(--light-gray-3);
+        color: var(--primary);
+    }
+}
