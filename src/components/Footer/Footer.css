@@ -55,8 +55,8 @@ footer {
 }
 
 .direitos {
-    text-align: center;
-    width: 90%;
+    width: 98% !important;
+    text-align: center !important;
     & p {
         padding-top: 2em;
         padding-bottom: 2em;
@@ -97,7 +97,7 @@ footer {
 /* Desktop */
 @media screen and (min-width: 992px) {
 footer {
-    display: flex;
+    display: flex; 
     flex-direction: column;
     justify-content: flex-start;
 }

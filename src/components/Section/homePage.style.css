@@ -1,28 +1,31 @@
 .homePageBanner {
   background-color: var(--light-gray-3);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-  display: flex;
-  justify-content: center;
+  padding: 0 60px;
+  padding-bottom: 70px;
+  
   & .tenis-banner {
-    margin-top: -5rem;
     transform: rotate(-20deg);
     transition: transform 0.5s;
   }
 
   & .ornamento {
     align-self: flex-start;
-    margin-top: 4rem;
   }
   
 }
 
-.banner {
+.banner-container {
   width: 90%;
-  padding: 0px 50px;
-  margin-top: -5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.banner {
+  padding: 0 70px;
+  width: 100%;
+  display: inline-block; 
+  vertical-align: middle; 
+  width: 50%; 
   & p {
     font-size: large;
     color: var(--warning);
@@ -39,7 +42,7 @@
   }
 
   & button {
-    width: 35%;
+    width: 25%;
     color: white !important;
     font-weight: 600;
     background-color: var(--primary);
@@ -49,4 +52,43 @@
     background-color: var(--tertiary);
   }
 
+}
+
+.carousel-item.active {
+  width: 100%;
+  margin-right: 0 !important;
+  float: none !important;
+}
+
+.carousel-indicators {
+  left: 120px;
+  margin-top: 8rem !important;
+  display: flex;
+  gap: 4px;
+  & button {
+    background-color: var(--primary) !important;
+  }
+}
+
+.carousel-indicators [data-bs-target] {
+  margin-top: 40px;
+  margin-top: 8rem !important;
+  width: 12px; 
+  height: 12px; 
+  border-radius: 50%; 
+}
+
+.carousel-indicators [data-bs-target].active {
+  background-color: var(--primary);
+  opacity: 1 !important;
+}
+
+.carousel-control-next,  .carousel-control-prev {
+  display: none !important;
+}
+
+.tenis-banner {
+  display: inline-block; 
+  width: 50%; 
+  height: auto;
 }

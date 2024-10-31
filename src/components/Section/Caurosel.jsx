@@ -1,38 +1,53 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './homePage.style.css'
-import '@globalStyles/ColorsVariables.css'
-import tenisBanner from '/tenis-banner.png'
-import { Carousel } from 'primereact/carousel';
-        
-export const HomePageCaurosel =  () => {
+import Carousel from 'react-bootstrap/Carousel';
+
+const heroData = [
+  {
+    id: 1,
+    paragrafo1: 'Melhores ofertas personalizadas',
+    titulo: 'Queima de estoque Nike',
+    paragrafo2: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus libero excepturi delectus minima.',
+    imgSrc: '/tenis-banner.png' 
+  },
+  {
+    id: 2,
+    paragrafo1: 'Novidades em tecnologia',
+    titulo: 'Promoção de Gadgets',
+    paragrafo2: 'Aproveite até 50% de desconto em uma seleção especial de gadgets e eletrônicos.',
+    imgSrc: '/tenis-banner.png' 
+  },
+  {
+    id: 3,
+    paragrafo1: 'Estilos que fazem a diferença',
+    titulo: 'Coleção Primavera/Verão',
+    paragrafo2: 'Descubra as últimas tendências em moda com nossa nova coleção de primavera/verão.',
+    imgSrc: '/tenis-banner.png' 
+  },
+  {
+    id: 4,
+    paragrafo1: 'Estilos que fazem a diferença',
+    titulo: 'Coleção Primavera/Verão',
+    paragrafo2: 'Descubra as últimas tendências em moda com nossa nova coleção de primavera/verão.',
+    imgSrc: '/tenis-banner.png' 
+  },
+
+]
+
+function ControlledCarousel() {
   return (
-    <>
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100" src="..." alt="First slide"/>
+    <Carousel>
+      {heroData.map(item => (
+        <Carousel.Item key={item.id}>
+          <div className="banner">
+            <p className='fw-bold'>{item.paragrafo1}</p>
+            <h1>{item.titulo}</h1>
+            <p className='py-2'>{item.paragrafo2}</p>
+            <button className='btn py-2'>Ver Ofertas</button>
           </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="..." alt="Second slide"/>
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100" src="..." alt="Third slide"/>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-  </>
-  )
+          <img src={item.imgSrc} className='tenis-banner' alt="tenis nike" />
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  );
 }
+
+export default ControlledCarousel;
