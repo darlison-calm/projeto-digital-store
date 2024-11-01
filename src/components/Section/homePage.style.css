@@ -1,27 +1,23 @@
+body {
+  height: 100vh !important;
+}
+
 .homePageBanner {
   background-color: var(--light-gray-3);
   padding: 0 60px;
-  padding-bottom: 70px;
-  
-  & .tenis-banner {
-    transform: rotate(-20deg);
-    transition: transform 0.5s;
-  }
-
-  & .ornamento {
-    align-self: flex-start;
-  }
-  
+  padding-bottom: 80px;
+  width: 100vw !important;
 }
 
 .banner-container {
-  width: 90%;
+  width: 100% !important;
   display: flex;
   justify-content: center;
 }
 
 .banner {
   padding: 0 70px;
+
   width: 100%;
   display: inline-block; 
   vertical-align: middle; 
@@ -55,14 +51,14 @@
 }
 
 .carousel-item.active {
-  width: 100%;
+  width: 100% !important;
+  height: 100%;
   margin-right: 0 !important;
   float: none !important;
 }
 
 .carousel-indicators {
-  left: 120px;
-  margin-top: 8rem !important;
+  left: 50px;
   display: flex;
   gap: 4px;
   & button {
@@ -72,7 +68,6 @@
 
 .carousel-indicators [data-bs-target] {
   margin-top: 40px;
-  margin-top: 8rem !important;
   width: 12px; 
   height: 12px; 
   border-radius: 50%; 
@@ -87,8 +82,17 @@
   display: none !important;
 }
 
-.tenis-banner {
+.images {
+  display: inline-block;
+  height: 100%;
+}
+
+.tenis-img {
   display: inline-block; 
-  width: 50%; 
-  height: auto;
+  width: 70% !important;
+  transform: rotate(-15deg)
+}
+
+.ornamento {
+  margin-bottom: 230px;
 }
