@@ -11,4 +11,5 @@ ul, ol {
 html, body {
   max-width: 100%;
   overflow-x: hidden;
+  background-color: #F9F8FE;
 }

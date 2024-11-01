@@ -1,13 +1,20 @@
 .collection {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
+    justify-content: space-between;
+    margin: auto;
     width: 90%;
+}
+
+.card-colection {
+    & h1 {
+        padding: 0 0 2rem 5.5rem; /* padding: top right bottom left */
+    }
 }
 
 .card-custom {
     background-size: cover !important;
-    background-position: center !important;
+    background-position: left !important;
     width: 500px;
     height: 290px;
 }
@@ -29,10 +36,11 @@
     flex-direction: column;
     justify-content: space-between;
     padding-left: 3rem;
+    color: var(--dark-gray-2);
     & .card-title {
         background-color: #E7FF86;
-        padding: 0.3rem;
-        border-radius: 5px;
+        padding: 0.4rem;
+        border-radius: 1rem;
         text-align: center;
         font-size: 1rem;
         font-weight: bold;
@@ -40,7 +48,49 @@
     }
     & button {
         width: 40%;
+        height: 3.5rem;
         background-color: var(--light-gray-3);
         color: var(--primary);
+        font-weight: bold;
+        margin-bottom: 1.8rem;
+        border: none;
     }
+    & button:hover {
+        background-color: var(--primary);
+        color: var(--light-gray-3);
+    }
+}
+
+
+/* .icons-collection {
+    & h1 {
+        text-align: center;
+        padding: 2rem 0 2rem 0;
+    }
+    & img {
+        width: 40%;
+        height: 40%;
+        background-color: black;
+        object-fit: contain;
+    }
+    & img :hover path{
+        fill: var(--primary);
+    }
+    & figure.image {
+        border-radius: 50%;
+    }
+} */
+
+.icons-collection h1 {
+    text-align: center;
+    padding: 2rem 0; /* padding: top right bottom left */
+}
+
+.circular-image {
+    width: 100px; /* Defina o tamanho desejado */
+    height: 100px; /* Defina o tamanho desejado */
+    border-radius: 50%; /* Faz a div ficar circular */
+    background-size: cover; /* Cobre todo o círculo */
+    background-position: center; /* Centraliza a imagem de fundo */
+    margin: auto; /* Centraliza a imagem dentro da coluna */
 }
