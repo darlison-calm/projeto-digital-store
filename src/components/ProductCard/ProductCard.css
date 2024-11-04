@@ -2,29 +2,25 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 300px;
-    height: 440px;
-
-    /* dev */
-    margin: 30px auto;
+    width: 250px;
+    height: 400px;
     box-sizing: border-box;
+    margin-top: 20px;
 }
 
 .card-product-top {
-    background-color: #f5f5f5;
+    background-color: white;
     position: relative;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
+    box-shadow: 6px 16px 30px 0px #6962620D;
     width: 100%;
- height: 70%;
-}
-
-.card-product-top > img {
-
-    width: 80%;
+    height: 70%;
+    border-radius: 4px;
+    & img {
+        width: 70%;
+    }
 }
 
 .card-product-top > span{

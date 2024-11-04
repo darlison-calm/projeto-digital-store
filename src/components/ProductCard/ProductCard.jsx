@@ -1,11 +1,12 @@
 import './ProductCard.css'
 
-export function Product(props) {
+export function Product({ props }) {
     const desconto = (v, vd) => {
         return (((v - vd) / v) * 100).toFixed(0)
     }
-    return <>
-        <div className="card-product">
+    return (
+    <>
+      <div className="card-product">
             <div className='card-product-top'>
                 <span>{desconto(props.preco_original, props.preco_desconto)}% OFF</span>
                 <img src={props.imagem_url} alt={'imagem do tenis modelo '+ props.marca} />
@@ -22,4 +23,5 @@ export function Product(props) {
             </div>
         </div>
     </>
+    )
 }
