@@ -38,15 +38,17 @@ function ControlledCarousel() {
     <Carousel>
       {bannerData.map(item => (
         <Carousel.Item interval={2500} key={item.id}>
-          <div className="banner">
-            <p className='fw-bold'>{item.paragrafo1}</p>
-            <h1>{item.titulo}</h1>
-            <p className='py-2'>{item.paragrafo2}</p>
-            <button className='btn py-2'>Ver Ofertas</button>
-          </div>
-          <div className="images">
-            <img src={item.imgSrc} className='tenis-img' alt="tenis nike" />
-            <img src={ornamento} className='ornamento'></img>
+          <div className="d-flex align-items-center">
+            <div className="banner">
+              <p className='fw-bold'>{item.paragrafo1}</p>
+              <h1>{item.titulo}</h1>
+              <p className='py-2'>{item.paragrafo2}</p>
+              <button className='btn py-2'>Ver Ofertas</button>
+            </div>
+            <div className="images">
+              <img src={item.imgSrc} className='tenis-img' alt="tenis nike" />
+              <img src={ornamento} className='ornamento'></img>
+            </div>
           </div>
         </Carousel.Item>
       ))}
