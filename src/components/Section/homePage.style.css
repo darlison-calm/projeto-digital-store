@@ -1,28 +1,27 @@
+body {
+  height: 100vh !important;
+}
+
 .homePageBanner {
   background-color: var(--light-gray-3);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  padding: 0 60px;
+  padding-bottom: 80px;
+  width: 100vw !important;
+}
 
+.banner-container {
+  width: 100% !important;
   display: flex;
   justify-content: center;
-  & .tenis-banner {
-    margin-top: -5rem;
-    transform: rotate(-20deg);
-    transition: transform 0.5s;
-  }
-
-  & .ornamento {
-    align-self: flex-start;
-    margin-top: 4rem;
-  }
-  
 }
 
 .banner {
-  width: 90%;
-  padding: 0px 50px;
-  margin-top: -5rem;
+  padding: 0 70px;
+
+  width: 100%;
+  display: inline-block; 
+  vertical-align: middle; 
+  width: 50%; 
   & p {
     font-size: large;
     color: var(--warning);
@@ -39,7 +38,7 @@
   }
 
   & button {
-    width: 35%;
+    width: 25%;
     color: white !important;
     font-weight: 600;
     background-color: var(--primary);
@@ -49,4 +48,33 @@
     background-color: var(--tertiary);
   }
 
+}
+
+.carousel-indicators {
+  left: 0px;
+  bottom: -50px;
+  display: flex;
+  gap: 4px;
+  & button {
+    background-color: var(--primary) !important;
+  }
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 12px; 
+  height: 12px; 
+  border-radius: 50%; 
+}
+
+.carousel-control-next,  .carousel-control-prev {
+  display: none !important;
+}
+
+.tenis-img {
+  width: 70%;
+  transform: rotate(-30deg);
+}
+
+.ornamento {
+  margin-bottom: 230px;
 }
