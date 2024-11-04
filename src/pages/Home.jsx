@@ -1,14 +1,34 @@
 import { HomePageBanner } from '../components/Section/HomePageBanner';
-import ProductCard from '../components/ProductCard/ProductCard';
+import {Product} from '../components/ProductCard/ProductCard'
+
+const props = {
+    nome: "K-Swiss V8 - Masculino",
+    nota: 4,
+    marca: "Adidas",
+    modelo: "Casual",
+    referencia: "38416711",
+    preco_original: 300,
+    preco_desconto: 250,
+    imagem_url: "https://i.ibb.co/XZzRvBJ/Layer-1aa-2.png"
+  };
+  
+
+
 const Home = () => {
-    const props = {
-        name: 'Home',
-        image_url: 'https://cdn.awsli.com.br/600x450/1621/1621592/produto/178661445/fbaf991a78bc4896a3e9ad7800abcec6_9366-sugbwn-g7y1qcudzg.png'
-    }
+
     return (
         <>
             <HomePageBanner/>
-            <ProductCard image_url={props.image_url} name={props.name} />
+            <Product 
+                image_url={props.imagem_url} 
+                nome={props.nome} 
+             
+                marca={props.marca} 
+
+            
+                preco_original={props.preco_original} 
+                preco_desconto={props.preco_desconto} 
+            />
         </>
     )
 }
