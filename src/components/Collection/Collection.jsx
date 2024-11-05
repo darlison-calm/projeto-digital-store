@@ -41,21 +41,40 @@ export function Collection() {
                     <h1>Coleções em destaque</h1>
                     <Container>
                         <Row>
-                            <Col xs={6} md={4}>
-                                <div className="circular-image" style={{ backgroundImage: 'url(src/assets/shirt.svg)' }} />
-                            </Col>
-                            <Col xs={6} md={4}>
-                                <div className="circular-image" style={{ backgroundImage: 'url(src/assets/pants.svg)' }} />
-                            </Col>
-                            <Col xs={6} md={4}>
-                                <div className="circular-image" style={{ backgroundImage: 'url(src/assets/cap.svg)' }} />
-                            </Col>
-                            <Col xs={6} md={4}>
-                                <div className="circular-image" style={{ backgroundImage: 'url(src/assets/fone.svg)' }} />
-                            </Col>
-                            <Col xs={6} md={4}>
-                                <div className="circular-image" style={{ backgroundImage: 'url(src/assets/shoes.svg)' }} />
-                            </Col>
+                            <div className='icon-item'>
+                                <div className='button-container'>
+                                    <button className="circular-image-button" style={{ backgroundImage: 'url(src/assets/shirt.svg)' }} />
+                                </div>
+                                <p>Camisetas</p>
+                            </div>
+
+                            <div className='icon-item'>
+                                <div className='button-container'>
+                                    <button className="circular-image-button" style={{ backgroundImage: 'url(src/assets/pants.svg)' }} />
+                                </div>
+                                <p>Calças</p>
+                            </div>
+
+                            <div className='icon-item'>
+                                <div className='button-container'>
+                                    <button className="circular-image-button" style={{ backgroundImage: 'url(src/assets/cap.svg)' }} />
+                                </div>
+                                <p>Bonés</p>
+                            </div>
+
+                            <div className='icon-item'>
+                                <div className='button-container'>
+                                    <button className="circular-image-button" style={{ backgroundImage: 'url(src/assets/fone.svg)' }} />
+                                </div>
+                                <p>Headphones</p>
+                            </div>
+
+                            <div className='icon-item'>
+                                <div className='button-container'>
+                                    <button className="circular-image-button" style={{ backgroundImage: 'url(src/assets/shoes.svg)' }} />
+                                </div>
+                                <p>Tênis</p>
+                            </div>
                         </Row>
                     </Container>
                 </div>

@@ -1,96 +1,112 @@
-.collection {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin: auto;
-    width: 90%;
-}
-
 .card-colection {
     & h1 {
+        color: var(--dark-gray-2);
         padding: 0 0 2rem 5.5rem; /* padding: top right bottom left */
     }
+    & .collection {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: auto;
+        width: 90%;
+        & .card-custom {
+            background-size: cover !important;
+            background-position: left !important;
+            width: 500px;
+            height: 290px;
+            & .card-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding-left: 3rem;
+                color: var(--dark-gray-2);
+                & .card-title {
+                    background-color: #E7FF86;
+                    padding: 0.4rem;
+                    border-radius: 1rem;
+                    text-align: center;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    width: 20%;
+                }
+                & button {
+                    width: 40%;
+                    height: 3.5rem;
+                    background-color: var(--light-gray-3);
+                    color: var(--primary);
+                    font-weight: bold;
+                    margin-bottom: 1.8rem;
+                    border: none;
+                }
+                & button:hover {
+                    background-color: var(--primary);
+                    color: var(--light-gray-3);
+                }
+            }
+        }
+        & .card-1 {
+            background-image: url("../../../public/collection-1.png");
+        }
+        
+        & .card-2 {
+            background-image: url("../../../public/collection-2.png");
+        }
+        
+        & .card-3 {
+            background-image: url("../../../public/collection-3.png");
+        }
+    }
 }
 
-.card-custom {
-    background-size: cover !important;
-    background-position: left !important;
-    width: 500px;
-    height: 290px;
-}
-
-.card-1 {
-    background-image: url("../../../public/collection-1.png");
-}
-
-.card-2 {
-    background-image: url("../../../public/collection-2.png");
-}
-
-.card-3 {
-    background-image: url("../../../public/collection-3.png");
-}
-
-.card-body {
+.icons-collection {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding-left: 3rem;
-    color: var(--dark-gray-2);
-    & .card-title {
-        background-color: #E7FF86;
-        padding: 0.4rem;
-        border-radius: 1rem;
-        text-align: center;
-        font-size: 1rem;
-        font-weight: bold;
-        width: 20%;
-    }
-    & button {
-        width: 40%;
-        height: 3.5rem;
-        background-color: var(--light-gray-3);
-        color: var(--primary);
-        font-weight: bold;
-        margin-bottom: 1.8rem;
-        border: none;
-    }
-    & button:hover {
-        background-color: var(--primary);
-        color: var(--light-gray-3);
-    }
-}
-
-
-/* .icons-collection {
+    align-items: center;
     & h1 {
         text-align: center;
-        padding: 2rem 0 2rem 0;
+        color: var(--dark-gray-2);
+        padding: 2rem 0; /* padding: top right bottom left */
     }
-    & img {
-        width: 40%;
-        height: 40%;
-        background-color: black;
-        object-fit: contain;
+    & .row {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        gap: 4rem;
+        & .icon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 6vw;
+            text-align: center;
+            & .button-container {
+                width: 5vw;
+                height: 10vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 1rem;
+                & .circular-image-button {
+                    width: 5vw;
+                    height: 10vh;
+                    border: none;
+                    background: none;
+                    background-size: contain;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    cursor: pointer;
+                }
+                & .circular-image-button:hover {
+                    filter: invert(22%) sepia(47%) saturate(3828%) hue-rotate(310deg) brightness(94%) contrast(99%);
+                }
+            }
+            & p {
+                text-align: center;
+                font-weight: bold;
+                margin-top: 0.5rem;
+                font-size: 1rem;
+                color: var(--dark-gray-2);
+            }
+        }
     }
-    & img :hover path{
-        fill: var(--primary);
-    }
-    & figure.image {
-        border-radius: 50%;
-    }
-} */
-
-.icons-collection h1 {
-    text-align: center;
-    padding: 2rem 0; /* padding: top right bottom left */
-}
-
-.circular-image {
-    width: 100px; /* Defina o tamanho desejado */
-    height: 100px; /* Defina o tamanho desejado */
-    border-radius: 50%; /* Faz a div ficar circular */
-    background-size: cover; /* Cobre todo o círculo */
-    background-position: center; /* Centraliza a imagem de fundo */
-    margin: auto; /* Centraliza a imagem dentro da coluna */
 }
