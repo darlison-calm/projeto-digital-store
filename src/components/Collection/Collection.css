@@ -80,12 +80,15 @@
             width: 6vw;
             text-align: center;
             & .button-container {
-                width: 5vw;
-                height: 10vh;
+                width: 8vw;
+                height: 15vh;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 margin-bottom: 1rem;
+                border-radius: 50%;
+                background-color: var(--white);
+                box-shadow: 0px 4px 25px 0px #0000000D;
                 & .circular-image-button {
                     width: 5vw;
                     height: 10vh;

@@ -1,11 +1,7 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
 import Row from 'react-bootstrap/Row';
-import Figure from 'react-bootstrap/Figure';
-// import img from '../../assets/'
 import '@globalStyles/ColorsVariables.css'
 import '../../globalStyles/reset.css'
 import './Collection.css'
