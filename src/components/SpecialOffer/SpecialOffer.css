@@ -1,0 +1,36 @@
+.card {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    color: var(--dark-gray-2);
+    border: none;
+    background-color: var(--white);
+    & .imagem{
+        padding: 10rem 10rem 0rem 10rem;
+    }
+    & .card-body {
+        padding: 10rem 15rem 0rem 0rem;
+    }
+
+    & .card-subtitle {
+        font-size: 1rem;
+        padding-bottom: 1rem;
+        color: var(--primary);
+        font-weight: bold;
+    }
+
+    & .card-title {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    & .card-text {
+        font-size: 1rem;
+    }
+    & button {
+        background-color: var(--primary);
+        border: none;
+    }
+    & button:hover {
+        background-color: var(--tertiary);
+    }
+}

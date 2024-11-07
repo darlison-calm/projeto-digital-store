@@ -9,18 +9,18 @@ import Card from 'react-bootstrap/Card';
 export function SpecialOffer() {
     return (
         <>
-            <Card style={{ width: '18rem' }}>
-                <div>
+            <Card>
+                <div className='imagem'>
                     <Card.Img variant="top" src="../../../public/special-offer.png" />
                 </div>
-                <div>
+                <div className='corpo'>
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
+                        <Card.Subtitle>Oferta especial</Card.Subtitle>
+                        <Card.Title>Air Jordan edição de colecionador</Card.Title>
                         <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
                         </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
+                        <Button variant="primary">Ver Ofertas</Button>
                     </Card.Body>
                 </div>
             </Card>
