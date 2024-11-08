@@ -11,7 +11,7 @@ export function ProductListing() {
     <>
       <div className="products-container">
         <div className="layout">
-          <div className="d-flex justify-content-between">
+          <div className="products-cont-header">
             <h4>Produtos em destaque</h4>
             <button>Ver todos <img src={arrow} className="right-arrow" alt="" srcset="" /></button>
           </div>
