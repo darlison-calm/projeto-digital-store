@@ -1,28 +1,24 @@
 import '@globalStyles/ColorsVariables.css'
 import '../../globalStyles/reset.css'
 import './SpecialOffer.css'
-// import '../../../public/special-offer.png'
-
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
 export function SpecialOffer() {
     return (
         <>
-            <Card style={{ width: '18rem' }}>
-                <div>
+            <Card className='card_offer'>
+                <div className='image_card_offer'>
                     <Card.Img variant="top" src="../../../public/special-offer.png" />
                 </div>
-                <div>
-                    <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                            Some quick example text to build on the card title and make up the
-                            bulk of the card's content.
-                        </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
-                    </Card.Body>
-                </div>
+                <Card.Body className='card_body_offer'>
+                    <Card.Subtitle className='card_subt_offer'>Oferta especial</Card.Subtitle>
+                    <Card.Title className='card_title_offer'>Air Jordan edição de colecionador</Card.Title>
+                    <Card.Text className='card_text_offer'>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.
+                    </Card.Text>
+                    <Button className='card_button_offer' variant="primary">Ver Ofertas</Button>
+                </Card.Body>
             </Card>
         </>
     )
