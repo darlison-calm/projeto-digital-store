@@ -9,7 +9,7 @@
     background-color: var(--white);
 
     & .image_card_offer {
-        padding: 6rem 0rem 10rem 8rem;
+        padding: 6rem 0rem 3rem 8rem;
     }
 
     & .card_body_offer {
