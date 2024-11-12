@@ -55,8 +55,8 @@ footer {
 }
 
 .direitos {
-    text-align: center;
-    width: 90%;
+    width: 98% !important;
+    text-align: center !important;
     & p {
         padding-top: 2em;
         padding-bottom: 2em;
@@ -97,7 +97,7 @@ footer {
 /* Desktop */
 @media screen and (min-width: 992px) {
 footer {
-    display: flex;
+    display: flex; 
     flex-direction: column;
     justify-content: flex-start;
 }
@@ -105,7 +105,7 @@ footer {
     display: flex;
     flex-direction: row;
     gap: 1em;
-    padding-top: 1.8rem;
+    padding-top: 1.8rem;    
 }
 .social {
     margin-right: 7em;
@@ -126,10 +126,12 @@ footer {
         width: 8em;
         & h3 {
             padding-bottom: 1em;
+            font-size: 1.5rem;
         }
     }
     & .cat h3{
         padding-bottom: 1em;
+        font-size: 1.5rem;
     }
     & a {
         line-height: 1.6;
@@ -139,6 +141,7 @@ footer {
 .contato {        
     & h3 {
         padding-bottom: 0.5em;
+        font-size: 1.5rem;
     }
 }
 
