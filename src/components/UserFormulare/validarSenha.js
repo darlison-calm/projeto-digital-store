@@ -1,9 +1,7 @@
 import Joi from 'joi';
 
-// Regex para letras com acentos
-const lettersWithAccentsRegex = /^[a-zA-ZáàäâãåÁÀÄÂÃÅéèëêÉÈËÊíìïîÍÌÏÎóòöôõÓÒÖÔÕúùüûÚÙÜÛñÑ' -]+$/;
-
-// Regex para senha (pelo menos uma letra maiúscula, um número e um caractere especial)
+const firstNameRegex = /^[a-zA-ZáàäâãåÁÀÄÂÃÅéèëêÉÈËÊíìïîÍÌÏÎóòöôõÓÒÖÔÕúùüûÚÙÜÛñÑ' -]+$/;
+const surNameRegex = /^[A-Za-zÀ-ÿа-яА-ЯґєіїЇЄа-яёЁ]+(?: [A-Za-zÀ-ÿа-яА-ЯґєіїЇЄа-яёЁ]+)*$/;
 const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{6,30}$/;
 
 // Schema de validação para o usuário
@@ -12,7 +10,7 @@ const userSchema = Joi.object({
     .min(1)
     .max(20)
     .required()
-    .pattern(lettersWithAccentsRegex)
+    .pattern(firstNameRegex)
     .messages({
       'string.pattern.base': 'O primeiro nome deve conter apenas letras e acentos válidos.',
       'any.required': 'O primeiro nome é obrigatório.',
@@ -24,7 +22,7 @@ const userSchema = Joi.object({
     .min(1)
     .max(20)
     .required()
-    .pattern(lettersWithAccentsRegex)
+    .pattern(surNameRegex)
     .messages({
       'string.pattern.base': 'O sobrenome deve conter apenas letras e acentos válidos.',
       'any.required': 'O sobrenome é obrigatório.',

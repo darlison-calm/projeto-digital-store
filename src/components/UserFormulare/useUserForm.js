@@ -55,6 +55,7 @@ export function useUserForm() {
         surname: '',
         email: '',
         password: '',
+        confirmpassword: '',
     });
 
     // Função para lidar com a mudança nos campos do formulário
@@ -132,7 +133,7 @@ export function useUserForm() {
 
     // Função para lidar com o envio do formulário
     const handleSubmit = async (e) => {
-        e.preventDefault(); // Previne o comportamento padrão do formulário (recarregar a página)
+        e.preventDefault(); // Previne o comportamento padrão do formulário
 
         // Validação com Joi
         const { error } = userSchema.validate(formData, { abortEarly: false });
@@ -146,30 +147,23 @@ export function useUserForm() {
             setErrors(errorMessages);
         } else {
             // Se a validação passar, podemos enviar os dados para o backend
-            const { confirmpassword, ...dataToSend } = formData;
+            const { confirmpassword, ...dataToSend } = formData;  // Remover 'confirmpassword' aqui
+
             try {
-                console.log(formData);
-                const response = await axios.post('http://localhost:3000/users', dataToSend , {
+                const response = await axios.post('http://localhost:3000/users', dataToSend, {
                     headers: {
                         'Content-Type': 'application/json',
                     },
                 });
-
-                // Checa se a requisição foi bem-sucedida
-                if (!response.ok) {
-                    throw new Error('Erro ao criar o usuário');
-                }
-
-                const result = await response.json(); // Resposta do servidor
-
-                console.log('Usuário criado com sucesso:', result);
-
-                // Você pode redirecionar o usuário ou mostrar uma mensagem de sucesso
-                alert('Usuário criado com sucesso!');
+                console.log('Resposta do servidor:', response);
             } catch (error) {
-                // Trata erros na requisição
-                console.error('Erro ao enviar os dados:', error);
-                alert('Ocorreu um erro. Tente novamente mais tarde.');
+                if (error.response) {
+                    console.error('Erro da resposta:', error.response.data);
+                    alert(`Erro: ${error.response.data.message || 'Ocorreu um erro no servidor.'}`);
+                } else {
+                    console.error('Erro ao enviar dados:', error);
+                    alert('Erro ao enviar os dados');
+                }
             }
         }
     };
