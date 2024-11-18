@@ -8,17 +8,17 @@ export function Product({ props }) {
     <>
       <div className="card-product">
             <div className='card-product-top'>
-                <span>{desconto(props.preco_original, props.preco_desconto)}% OFF</span>
-                <img src={props.imagem_url} alt={'imagem do tenis modelo '+ props.marca} />
+                <span>{desconto(props.price, props.price_with_discount)}% OFF</span>
+                <img src={props.images[0].path} alt={'imagem do tenis modelo '+ props.mark} />
             </div>
             <div className='card-product-bot'>
         
                     <span>Tênis</span>
-                    <span>{props.nome}</span>
+                    <span>{props.name}</span>
                
                 <span>
-                    <span>${props.preco_original}</span>
-                    ${props.preco_desconto}
+                    <span>${props.price}</span>
+                    ${props.price_with_discount}
                 </span>
             </div>
         </div>
