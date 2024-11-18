@@ -12,30 +12,30 @@ export const UserLogin = () => {
             <Container fluid className="login_container">
                 <Row className="login_row">
                     <Col md={8} lg={6} className="login_col">
-                        <div className="text-center">
+                        <div className="text_center">
                             <h3>Acesse sua conta</h3>
                             <p>Novo cliente? Então registre-se <a href="http://localhost:5173/cadastro">aqui</a>.</p>
                         </div>
-                        <Form>
+                        <Form className='login_form'>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Label>Login</Form.Label>
-                                <Form.Control type="email" placeholder="Insira seu login ou email" />
+                                <Form.Label className='lg_form_label'>Login *</Form.Label>
+                                <Form.Control className='lg_form_placeholder' type="email" placeholder="Insira seu login ou email" />
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Label>Senha</Form.Label>
-                                <Form.Control type="password" placeholder="Insira sua senha" />
+                                <Form.Label className='lg_form_label'>Senha *</Form.Label>
+                                <Form.Control className='lg_form_placeholder' type="password" placeholder="Insira sua senha" />
                             </Form.Group>
                             <div className='esqueci_senha'>
-                                <p>Esqueci minha senha</p>
+                                <a href='#'>Esqueci minha senha</a>
                             </div>
                             <Button variant="primary" type="submit" className="ButtonUserLogin">
-                                Entrar
+                                Acessar Conta
                             </Button>
-                            <div className='dif_login'>
+                            <div className='diferent_login'>
                                 <p>Ou faça login com</p>
-                                <button className="image_icon" style={{ backgroundImage: 'url(src/assets/email.svg)' }} />
-                                <button className="image_icon" style={{ backgroundImage: 'url(src/assets/facebook-color.svg)' }} />
+                                <button className="gmail_icon" style={{ backgroundImage: 'url(src/assets/gmail.svg)' }} />
+                                <button className="facebook_icon" style={{ backgroundImage: 'url(src/assets/facebook-color.svg)' }} />
                             </div>
                         </Form>
                     </Col>
