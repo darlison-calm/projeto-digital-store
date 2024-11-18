@@ -10,7 +10,6 @@ export const HomePageBanner = () => {
           <ControlledCarousel/>
         </div>
       </section>
-     
     </>
   )
 }
