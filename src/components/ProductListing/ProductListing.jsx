@@ -5,7 +5,7 @@ import '@globalStyles/ColorsVariables.css'
 import './ProductListing.css'
 import axios from 'axios';
 import { useState, useEffect } from "react";
-export function ProductListing() {
+export function ProductListing({ value }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export function ProductListing() {
             <button>Ver todos <img src={arrow} className="right-arrow" alt="" srcset="" /></button>
           </div>
           <div className="grid-container">
-            {products.slice(0, 8).map((products) => (
+            {products.slice(0, value).map((products) => (
                 <Product key={products.id} props={products}/>
               ))}
           </div>

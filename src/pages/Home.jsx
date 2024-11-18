@@ -9,7 +9,7 @@ const Home = () => {
         <>
             <HomePageBanner/>
             <Collection/>
-            <ProductListing/>
+            <ProductListing value={8}/>
             <SpecialOffer/>
         </>
     )
