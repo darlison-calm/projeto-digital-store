@@ -8,10 +8,11 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 export const UserLogin = () => {
     return (
         <>
-            <Container fluid className="d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
-                <Row className="w-100">
-                    <Col md={6} lg={4} className="mx-auto">
-                        <div className="text-center mb-4">
+        <div className='login_back'>
+            <Container fluid className="login_container">
+                <Row className="login_row">
+                    <Col md={8} lg={6} className="login_col">
+                        <div className="text-center">
                             <h3>Acesse sua conta</h3>
                             <p>Novo cliente? Então registre-se <a href="http://localhost:5173/cadastro">aqui</a>.</p>
                         </div>
@@ -31,15 +32,19 @@ export const UserLogin = () => {
                             <Button variant="primary" type="submit" className="ButtonUserLogin">
                                 Entrar
                             </Button>
-                            <div>
+                            <div className='dif_login'>
                                 <p>Ou faça login com</p>
                                 <button className="image_icon" style={{ backgroundImage: 'url(src/assets/email.svg)' }} />
                                 <button className="image_icon" style={{ backgroundImage: 'url(src/assets/facebook-color.svg)' }} />
                             </div>
                         </Form>
                     </Col>
+                    <div className="img_login">
+                        <img src="../../../public/login-image.png" alt="Shoes"/>
+                    </div>
                 </Row>
             </Container>
+        </div>
         </>
     );
 }
