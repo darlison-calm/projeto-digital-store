@@ -1,0 +1,35 @@
+.products-section-list {
+  display: flex;
+  width: 90%;
+}
+
+.filter {
+  display: flex;
+  flex-direction: column;
+}
+
+.filter-options {
+  display: flex;
+  flex-direction: column;
+
+  background-color: #f5f5f5;
+  margin: 40px auto;
+  margin-left: 90px;
+  width: 25%;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-item {
+  margin-bottom: 10px;
+}
+
+.filter-item label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.filter-item input[type="checkbox"] {
+  margin-right: 5px;
+}
