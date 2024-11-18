@@ -9,7 +9,7 @@ const Home = () => {
         <>
             <HomePageBanner/>
             <Collection/>
-            <ProductListing value={8}/>
+            <ProductListing columns={4} displayValue={8}/>
             <SpecialOffer/>
         </>
     )
