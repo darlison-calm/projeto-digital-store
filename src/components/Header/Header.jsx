@@ -12,19 +12,19 @@ const Header = () => {
   return (
     <>
       <header className="d-flex flex-column">
-          <div className="header1">
-            <img src={logo} alt="" className='logo' />
-            <SearchBar className={"header1searchBar"}/>
-            <EntrarECadastroButtons button1Order={2} button2Order={1} className="gap-4" />
-            <ShoppingCartButton />
-          </div>
+        <div className="header1">
+          <img src={logo} alt="" className='logo' />
+          <SearchBar className={"header1searchBar"} />
+          <EntrarECadastroButtons button1Order={2} button2Order={1} className="gap-4" />
+          <ShoppingCartButton />
+        </div>
 
-          <div className="header2">
-              <Link to='/' className="text-decoration-none">Home</Link>
-              <Link to="/produtos" className="text-decoration-none">Produtos</Link>
-              <Link to="/categorias" className="text-decoration-none">Categorias</Link>
-              <Link to="/meus-pedidos" className="text-decoration-none">Meus Pedidos</Link>
-          </div>
+        <div className="header2">
+          <Link to='/' className="text-decoration-none">Home</Link>
+          <Link to="/produtos" className="text-decoration-none">Produtos</Link>
+          <Link to="/categorias" className="text-decoration-none">Categorias</Link>
+          <Link to="/meus-pedidos" className="text-decoration-none">Meus Pedidos</Link>
+        </div>
       </header>
     </>
   );
