@@ -10,7 +10,7 @@ export function ProductListing({ displayValue, columns }) {
         <div className="layout">
           <div className="products-cont-header">
             <h4>Produtos em destaque</h4>
-            <button>Ver todos <img src={arrow} className="right-arrow" alt="" srcset="" /></button>
+            <button>Ver todos <img src={arrow} className="right-arrow"/></button>
           </div>
           <ProductGrid columns={columns} length={displayValue} />
         </div>

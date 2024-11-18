@@ -1,6 +1,6 @@
 import UserFormulare from '../components/UserFormulare/UserFormulare.jsx';
 
-const Singin = () => {
+const Signin = () => {
     return (
         <>
             <div>
@@ -10,4 +10,4 @@ const Singin = () => {
     )
 }
 
-export default Singin;
+export default Signin;
