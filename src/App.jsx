@@ -11,19 +11,19 @@ function App() {
         <Router>
             <Routes>
                 <Route path="/" element={<>
-                    <Header showSearchBar={true} showEntrarECadastro={true} showShoppingCart={true} showHeader2={true} />
+                    <Header showSearchBar={true} showShoppingCart={true} showHeader2={true} />
                     <Home />
                 </>} />
                 <Route path="/login" element={<>
-                    <Header showSearchBar={false} showEntrarECadastro={false} showShoppingCart={false} showHeader2={false} />
+                    <Header showSearchBar={false} showShoppingCart={false} showHeader2={false} />
                     <Login />
                 </>} />
                 <Route path="/cadastro" element={<>
-                    <Header showSearchBar={false} showEntrarECadastro={false} showShoppingCart={false} showHeader2={false} />
+                    <Header showSearchBar={false} showShoppingCart={false} showHeader2={false} />
                     <Signin />
                 </>} />
                 <Route path="/produtos" element={<>
-                    <Header showSearchBar={true} showEntrarECadastro={true} showShoppingCart={true} showHeader2={true} />
+                    <Header showSearchBar={true} showShoppingCart={true} showHeader2={true} />
                     <ProductsSection />
                 </>} />
             </Routes>

@@ -32,7 +32,13 @@ export function useUserLogin() {
 
             // Salvar dados do usuário no localStorage ou sessionStorage
             localStorage.setItem("authToken", response.data.token);
-            localStorage.setItem('userName', userName);
+
+            // Certifique-se de que o nome do usuário está correto na resposta
+            if (response.data.user && response.data.user.firstname) {
+                localStorage.setItem('userName', response.data.user.firstname);
+            } else {
+                console.error('Nome do usuário não encontrado na resposta da API');
+            }
 
             // Após o login bem-sucedido, redireciona para a home
             navigate('/'); // Redireciona para a home

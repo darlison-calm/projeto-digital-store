@@ -10,9 +10,7 @@ import { Link } from 'react-router-dom';
 
 const Header = ({
   showSearchBar = true,
-  showEntrarECadastro = true,
   showShoppingCart = true,
-  showUserInfo = true,
   showHeader2 = true
 }) => {
   const userName = localStorage.getItem('userName');  // O nome do usuário está salvo aqui
@@ -22,9 +20,9 @@ const Header = ({
         <div className="header1">
           <img src={logo} alt="" className='logo' />
           {showSearchBar && <SearchBar className={"header1searchBar"} />}
-          {showEntrarECadastro && <EntrarECadastroButtons button1Order={2} button2Order={1} className="gap-4" />}
+          {!userName && <EntrarECadastroButtons button1Order={2} button2Order={1} className="gap-4" />}
           {showShoppingCart && <ShoppingCartButton />}
-          {showUserInfo && <div className="user_info_header">
+          {userName && <div className="user_info_header">
             <button className="image_user_button" style={{ backgroundImage: 'url(src/assets/user.svg)' }} />
             {userName && <span className="user_name">Olá, {userName}</span>}
           </div>}
