@@ -30,8 +30,9 @@ export function useUserLogin() {
             const response = await axios.post('http://localhost:3000/users/login', user);
             console.log('Login bem-sucedido:', response.data);
 
-            // Salvar o token no localStorage ou sessionStorage
+            // Salvar dados do usuário no localStorage ou sessionStorage
             localStorage.setItem("authToken", response.data.token);
+            localStorage.setItem('userName', userName);
 
             // Após o login bem-sucedido, redireciona para a home
             navigate('/'); // Redireciona para a home

@@ -80,6 +80,35 @@ header {
                 color: var(--light-gray-2);
             }
         }
+        & .user_info_header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            & .image_user_button {
+                height: 1.3rem;
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-color: transparent;
+                border: none;
+                cursor: pointer;
+              }
+            
+            & .image_user_button:hover {
+                opacity: 0.8;
+              }
+              
+            & .image_user_button:focus {
+                outline: none;
+              }
+
+            & .user_name {
+                font-size: 1rem;
+                color: var(--dark-gray-2);
+                font-weight: 500;
+              }
+          }
     }
 
     & .header2 {
