@@ -8,20 +8,28 @@ import { ProductsSection } from './pages/Products.jsx';
 
 function App() {
     return (
-        <>
-            <Router>
-                <div>
-                    <Header />
-                    <Routes>
-                        <Route path='/' element={<Home/>}></Route>
-                        <Route path='/login' element={<Login />}></Route>
-                        <Route path='/cadastro' element={<Signin />}></Route>
-                        <Route path='/produtos' element={<ProductsSection/>}></Route>
-                    </Routes>
-                    <Footer />
-                </div>
-            </Router>
-        </>
+        <Router>
+            <Routes>
+                <Route path="/" element={<>
+                    <Header showSearchBar={true} showShoppingCart={true} showHeader2={true} />
+                    <Home />
+                </>} />
+                <Route path="/login" element={<>
+                    <Header showSearchBar={false} showShoppingCart={false} showHeader2={false} />
+                    <Login />
+                </>} />
+                <Route path="/cadastro" element={<>
+                    <Header showSearchBar={false} showShoppingCart={false} showHeader2={false} />
+                    <Signin />
+                </>} />
+                <Route path="/produtos" element={<>
+                    <Header showSearchBar={true} showShoppingCart={true} showHeader2={true} />
+                    <ProductsSection />
+                </>} />
+            </Routes>
+            <Footer />
+        </Router>
     );
 }
+
 export default App;

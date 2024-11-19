@@ -30,8 +30,15 @@ export function useUserLogin() {
             const response = await axios.post('http://localhost:3000/users/login', user);
             console.log('Login bem-sucedido:', response.data);
 
-            // Salvar o token no localStorage ou sessionStorage
+            // Salvar dados do usuário no localStorage ou sessionStorage
             localStorage.setItem("authToken", response.data.token);
+
+            // Certifique-se de que o nome do usuário está correto na resposta
+            if (response.data.user && response.data.user.firstname) {
+                localStorage.setItem('userName', response.data.user.firstname);
+            } else {
+                console.error('Nome do usuário não encontrado na resposta da API');
+            }
 
             // Após o login bem-sucedido, redireciona para a home
             navigate('/'); // Redireciona para a home
