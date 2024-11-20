@@ -5,6 +5,7 @@ import Home from './pages/Home.jsx'
 import Login from './pages/Login.jsx'
 import Signin from './pages/Signin.jsx'
 import { ProductsSection } from './pages/Products.jsx';
+import MyProfile from './pages/MyProfile.jsx';
 
 function App() {
     return (
@@ -26,7 +27,11 @@ function App() {
                     <Header showSearchBar={true} showShoppingCart={true} showHeader2={true} />
                     <ProductsSection />
                 </>} />
-            </Routes>
+                <Route path='/myinfo' element={<>
+                    <Header showSearchBar={true} showShoppingCart={true} showHeader2={true} />
+                    <MyProfile />
+                </>} />
+                </Routes>
             <Footer />
         </Router>
     );
