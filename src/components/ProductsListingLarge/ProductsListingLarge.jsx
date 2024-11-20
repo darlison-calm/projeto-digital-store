@@ -1,61 +1,53 @@
 import { ProductGrid } from '../ProductGrid/ProductGrid.jsx';
-import  { ProductListing }   from '../ProductListing/ProductListing.jsx';
+import { FilterOptions } from '../FilterOption/FilterOptions.jsx';
+import { useLocation } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import './ProductListingLarge.css'
 import '@globalStyles/reset.css'
-const FilterOptions = () => {
-  return (
-    <div className="filter-options">
-      <h3>Filtrar por</h3>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="marca" value="adidas" /> Adidas
-        </label>
-      </div>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="marca" value="k-swiss" /> K-Swiss
-        </label>
-      </div>
-      <h3>Categoria</h3>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="categoria" value="esporte-e-lazer" /> Esporte e Lazer
-        </label>
-      </div>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="categoria" value="casual" /> Casual
-        </label>
-      </div>
-      <h3>Gênero</h3>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="genero" value="masculino" /> Masculino
-        </label>
-      </div>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="genero" value="feminino" /> Feminino
-        </label>
-      </div>
-      <h3>Estado</h3>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="estado" value="novo" /> Novo
-        </label>
-      </div>
-    </div>
-  );
-};
-
 
 export function ProductListingLarge() {
+  const [products, setProducts] = useState([]);
+  const [selectedMarks, setSelectedMarks] = useState([]);
+
+  const fetchProducts = async (marks = []) => {
+    try {
+      let url = 'http://localhost:3000/products';
+      if (marks.length > 0) {
+        url += `?mark=${marks.join(',')}`;
+      }
+      
+      const response = await axios.get(url);
+      const productsData = response.data.data;
+      setProducts(productsData);
+      localStorage.setItem('products', JSON.stringify(productsData));
+    } catch (error) {
+      console.error("Erro ao buscar produtos", error);
+    }
+  };
+
+  useEffect(() => {
+    const cachedProducts = localStorage.getItem('products');
+    if (cachedProducts) {
+      setProducts(JSON.parse(cachedProducts));
+    } else {
+      fetchProducts();
+    }
+
+    const interval = setInterval(() => fetchProducts(selectedMarks), 60000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <div className="products-section-list">
-      <FilterOptions/>   
-      <ProductGrid columns={3}></ProductGrid>
+      <FilterOptions 
+        onMarkChange={(marks) => {
+          setSelectedMarks(marks);
+          fetchProducts(marks);
+        }}
+      />
+      <ProductGrid columns={3} products={products}/>
     </div>
-  )
+  );
 }
-
 
