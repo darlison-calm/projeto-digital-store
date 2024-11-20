@@ -1,0 +1,48 @@
+/* Estilos gerais do menu */
+.my-profile-menu {
+    margin: 0;
+
+    & hr {
+        width: 90%;
+        border-top: 0.2rem solid var(--light-gray-2);
+    }
+}
+
+/* Sidebar (menu à esquerda) */
+.my-profile-menu-sidebar {
+    background-color: var(--white);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.my-profile-menu-title {
+    padding-left: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: var(--dark-gray-2);
+}
+
+/* Navegação personalizada */
+.my-profile-menu-nav .my-profile-menu-link {
+    background-color: transparent;
+    color: var(--dark-gray-2);
+}
+
+.my-profile-menu-nav .my-profile-menu-link.active {
+    background-color: transparent;
+    color: var(--primary);
+    font-weight: bold;
+}
+
+.my-profile-menu-nav .my-profile-menu-link:hover,
+.my-profile-menu-nav .my-profile-menu-link:focus {
+    text-decoration: underline;
+}
+
+/* Conteúdo principal */
+.my-profile-menu-content {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 5px;
+}

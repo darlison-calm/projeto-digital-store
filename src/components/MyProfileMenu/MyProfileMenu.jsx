@@ -9,28 +9,28 @@ import PaymentMethods from './PaymentMethods.jsx'
 export function MyProfileMenu() {
     return (
         <Tab.Container id="left-tabs-example" defaultActiveKey="meus-pedidos">
-            <Row>
+            <Row className="my-profile-menu">
                 {/* Menu à esquerda */}
-                <Col sm={3}>
-                    <h6>Menu Perfil</h6>
-                    <hr />
-                    <Nav variant="pills" className="flex-column">
-                        <Nav.Item>
-                            <Nav.Link eventKey="meus-pedidos">Meus Pedidos</Nav.Link>
+                <Col sm={3} className="my-profile-menu-sidebar">
+                    <h6 className="my-profile-menu-title">Menu Perfil</h6>
+                    <hr/>
+                    <Nav variant="pills" className="my-profile-menu-nav">
+                        <Nav.Item className="my-profile-menu-item">
+                            <Nav.Link eventKey="meus-pedidos" className="my-profile-menu-link">Meus Pedidos</Nav.Link>
                         </Nav.Item>
-                        <hr />
-                        <Nav.Item>
-                            <Nav.Link eventKey="minhas-informacoes">Minhas Informações</Nav.Link>
+                        <hr/>
+                        <Nav.Item className="my-profile-menu-item">
+                            <Nav.Link eventKey="minhas-informacoes" className="my-profile-menu-link">Minhas Informações</Nav.Link>
                         </Nav.Item>
-                        <hr />
-                        <Nav.Item>
-                            <Nav.Link eventKey="metodos-de-pagamento">Métodos de Pagamento</Nav.Link>
+                        <hr/>
+                        <Nav.Item className="my-profile-menu-item">
+                            <Nav.Link eventKey="metodos-de-pagamento" className="my-profile-menu-link">Métodos de Pagamento</Nav.Link>
                         </Nav.Item>
                     </Nav>
                 </Col>
 
                 {/* Conteúdo ao lado */}
-                <Col sm={9}>
+                <Col sm={9} className="my-profile-menu-content">
                     <Tab.Content>
                         <Tab.Pane eventKey="meus-pedidos">
                             <MyOrders />
