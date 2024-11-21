@@ -40,6 +40,11 @@ function App() {
                     <Header showSearchBar={true} showShoppingCart={true} showHeader2={true} />
                     <ProductDetail />
                 </>} />
+                <Route path="/meus-pedidos" element={<>
+                    <Header showSearchBar={true} showShoppingCart={true} showHeader2={true} />
+                    EM MANUTENÇÃO...
+               </>} />
+                
                 </Routes>
             <Footer />
         </Router>
