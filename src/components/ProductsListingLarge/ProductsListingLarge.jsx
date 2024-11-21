@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { FilterOptions } from '../FilterOption/FilterOptions.jsx';
+import { useState, useEffect, useCallback } from 'react';
 import { ProductGrid } from '../ProductGrid/ProductGrid.jsx';
+import { FilterOptions } from '../FilterOption/FilterOptions.jsx';
+import axios from 'axios';
 import './ProductListingLarge.css';
 import '@globalStyles/reset.css';
 
@@ -9,50 +9,93 @@ export function ProductListingLarge() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedMarks, setSelectedMarks] = useState([]);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const fetchProducts = async () => {
+  const fetchProducts = useCallback(async () => {
     try {
+      setIsLoading(true);
       const response = await axios.get('http://localhost:3000/products');
       const productsData = response.data.data;
-      setProducts(productsData);
-      setFilteredProducts(productsData);
-      localStorage.setItem('products', JSON.stringify(productsData));
+      
+      const storedProducts = JSON.parse(localStorage.getItem('products') || '[]');
+      const hasNewProducts = 
+        productsData.length !== storedProducts.length || 
+        productsData.some(newProduct => 
+          !storedProducts.some(storedProduct => storedProduct.id === newProduct.id)
+        );
+
+      if (hasNewProducts) {
+        setProducts(productsData);
+        setFilteredProducts(productsData);
+        localStorage.setItem('products', JSON.stringify(productsData));
+      }
+      
+      setIsLoading(false);
     } catch (error) {
       console.error('Error fetching products', error);
+      setIsLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     const cachedProducts = localStorage.getItem('products');
     if (cachedProducts) {
-      const parsedProducts = JSON.parse(cachedProducts);
-      setProducts(parsedProducts);
-      setFilteredProducts(parsedProducts);
-    } else {
-      fetchProducts();
+      const productsData = JSON.parse(cachedProducts);
+      setProducts(productsData);
+      setFilteredProducts(productsData);
+      setIsLoading(false);
     }
+    
+    const productCheckInterval = setInterval(fetchProducts, 60000); 
+    
+    return () => clearInterval(productCheckInterval);
+  }, [fetchProducts]);
 
-    const intervalId = setInterval(fetchProducts, 120000);
-    return () => clearInterval(intervalId);
-  }, []);
+  const applyFilters = useCallback(() => {
+    let filtered = [...products];
 
-  const filterProducts = (marks) => {
-    if (marks.length === 0) {
+    if (selectedMarks.length === 0 && selectedCategories.length === 0) {
       setFilteredProducts(products);
-    } else {
-      const filtered = products.filter(product => marks.includes(product.mark));
-      setFilteredProducts(filtered);
+      return;
     }
-  };
 
-  const handleMarkChange = (marks) => {
-    setSelectedMarks(marks);
-    filterProducts(marks);
-  };
+    if (selectedMarks.length > 0) {
+      filtered = filtered.filter(product =>
+        selectedMarks.some(mark => product.mark.toLowerCase() === mark.toLowerCase())
+      );
+    }
+
+    if (selectedCategories.length > 0) {
+      filtered = filtered.filter(product =>
+        product.categories.some(category =>
+          selectedCategories.includes(category.slug)
+        )
+      );
+    }
+
+    setFilteredProducts(filtered);
+  }, [products, selectedMarks, selectedCategories]);
+  
+
+  useEffect(() => {
+    applyFilters();
+  }, [applyFilters]);
+
+  if (isLoading) {
+    return <div>carregando produtos...</div>;
+  }
 
   return (
     <div className="products-section-list">
-      <FilterOptions onMarkChange={handleMarkChange} />
+      <FilterOptions
+        onMarkChange={(marks) => {
+          setSelectedMarks(marks);
+        }}
+        onCategoryChange={(categories) => {
+          setSelectedCategories(categories);
+        }}
+      />
       <ProductGrid columns={3} products={filteredProducts} />
     </div>
   );
