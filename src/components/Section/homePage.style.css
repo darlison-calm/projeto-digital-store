@@ -65,8 +65,9 @@ body {
   border-radius: 50%; 
 }
 
-.carousel-control-next,  .carousel-control-prev {
-  display: none !important;
+.no-arrows .carousel-control-prev,
+.no-arrows .carousel-control-next {
+  display: none;
 }
 
 .tenis-img {

@@ -6,11 +6,11 @@ import arrow from '../../assets/long-arrow-right.svg'
 import '@globalStyles/ColorsVariables.css'
 import './ProductListing.css'
 
-export function ProductListing() {
+export function ProductListing({displayValue}) {
   const [products, setProducts] = useState([]);
   const fetchProducts = async () => {
     try {
-      let url = 'http://localhost:3000/products?limit=8';
+      let url = `http://localhost:3000/products?limit=${displayValue}`;
       const response = await axios.get(url);
       const productsData = response.data.data;
       setProducts(productsData);
