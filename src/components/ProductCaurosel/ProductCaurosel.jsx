@@ -14,10 +14,11 @@ function ProductCaurosel({ productId }) {
     if (error) return <p>{error}</p>;
     if (!product) return <p>Produto não encontrado.</p>;
 
-    const { name, description, price, price_with_discount, colors, backgrounds, images } = product;
+    const { name, mark, price, price_with_discount, colors, images } = product;
+    const categName = product.categories[0].name;
 
     const handleSelect = (selectedIndex) => {
-        setActiveIndex(selectedIndex); // Atualizar índice ativo no carrossel
+        setActiveIndex(selectedIndex);
     };
 
     return (
@@ -31,15 +32,15 @@ function ProductCaurosel({ productId }) {
                     indicators={false} // Remove indicadores padrão
                     controls={true} // Adiciona botões de navegação
                 >
-                    {backgrounds.map((bgColor, index) => (
+                    {images.map((image, index) => (
                         <Carousel.Item key={index} className="product-carousel-item">
                             <div
                                 className="carousel-image"
-                                style={{ backgroundColor: bgColor }}
+                                style={{ backgroundColor: colors[index % colors.length] }}
                             >
                                 <img
-                                    src={product.images[0].path}
-                                    alt={'imagem do tenis modelo '+ product.mark}
+                                    src={image.path}
+                                    alt={'imagem do tenis modelo ' + name}
                                     className="product-image"
                                 />
                             </div>
@@ -49,19 +50,19 @@ function ProductCaurosel({ productId }) {
 
                 {/* Thumbnails como botões */}
                 <div className="thumbnail-container">
-                    {backgrounds.map((bgColor, index) => (
+                    {images.map((image, index) => (
                         <div
                             key={index}
                             className={`thumbnail ${index === activeIndex ? 'active' : ''}`}
                             style={{
-                                backgroundColor: bgColor,
+                                backgroundColor: colors[index % colors.length], // Ajustando cor
                                 borderColor: index === activeIndex ? 'var(--primary)' : 'transparent',
                             }}
                             onClick={() => handleSelect(index)} // Alterar o índice ativo
                         >
                             <img
-                                src={product.images[0].path}
-                                alt={'imagem do tenis modelo '+ product.mark}
+                                src={image.path}
+                                alt={'imagem do tenis modelo ' + name}
                             />
                         </div>
                     ))}
@@ -70,7 +71,7 @@ function ProductCaurosel({ productId }) {
 
             <div className="product-carousel-right">
                 <h2>{name || 'Produto Padrão'}</h2>
-                <p>Casual | REF: {product.slug || '00000'}</p>
+                <p>{categName} | {mark} | REF:38416711</p>
                 <div className="rating">
                     <span>4.5 ⭐ (90 avaliações)</span>
                 </div>
@@ -80,7 +81,7 @@ function ProductCaurosel({ productId }) {
                         <span className="old-price">R$ {price}</span>
                     )}
                 </div>
-                <p className="description">{description || 'Sem descrição disponível.'}</p>
+                <p className="description">{'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.'}</p>
                 <h4>Cor</h4>
                 <div className="colors">
                     {colors.map((color, index) => (

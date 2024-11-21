@@ -65,7 +65,7 @@ body {
   border-radius: 50%; 
 }
 
-.carousel-control-next,  .carousel-control-prev {
+.no-arrows .carousel-control-next,  .no-arrows .carousel-control-prev {
   display: none !important;
 }
 
