@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-export const FilterOptions = ({ onMarkChange }) => {
+export const FilterOptions = ({ onMarkChange, onCategoryChange }) => {
   const [marks, setMarks] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [selectedMarks, setSelectedMarks] = useState([]);
-  
+  const [selectedCategories, setSelectedCategories] = useState([]);
+
   useEffect(() => {
     const fetchMarks = async () => {
       try {
@@ -15,75 +17,68 @@ export const FilterOptions = ({ onMarkChange }) => {
       }
     };
 
+    const fetchCategories = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/categories');
+        setCategories(response.data.data.filter(category => category.use_in_menu)); // Only categories that are used in the menu
+      } catch (error) {
+        console.error('Error fetching categories:', error);
+      }
+    };
+
     fetchMarks();
+    fetchCategories();
   }, []);
 
   const handleMarkChange = (mark) => {
-    let newSelectedMarks;
-    
-    if (selectedMarks.includes(mark)) {
-      newSelectedMarks = selectedMarks.filter(m => m !== mark);
-    } else {
-      newSelectedMarks = [...selectedMarks, mark];
-    }
-    
+    const newSelectedMarks = selectedMarks.includes(mark)
+      ? selectedMarks.filter(m => m !== mark)
+      : [...selectedMarks, mark];
     setSelectedMarks(newSelectedMarks);
     onMarkChange(newSelectedMarks);
+  };
+
+  const handleCategoryChange = (category) => {
+    const newSelectedCategories = selectedCategories.includes(category)
+      ? selectedCategories.filter(c => c !== category)
+      : [...selectedCategories, category];
+    setSelectedCategories(newSelectedCategories);
+    onCategoryChange(newSelectedCategories);  
   };
 
   return (
     <div className="filter-options">
       <h3>Filtrar por</h3>
-      
-      {/* Marca Filter */}
+      <hr/>
+      <h4>Marca</h4>
       {marks.map((mark) => (
         <div className="filter-item" key={mark}>
           <label>
             <input 
-              type="checkbox" 
-              name="marca" 
-              value={mark.toLowerCase()}
+              type="checkbox"
+              value={mark}
               checked={selectedMarks.includes(mark)}
-              onChange={() => handleMarkChange(mark)}
+              onChange={() => handleMarkChange(mark)} 
             />
             {mark}
           </label>
         </div>
       ))}
-      
-      {/* Categoria Filter */}
-      <h3>Categoria</h3>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="categoria" value="esporte-e-lazer" /> Esporte e Lazer
-        </label>
-      </div>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="categoria" value="casual" /> Casual
-        </label>
-      </div>
-      
-      {/* Gênero Filter */}
-      <h3>Gênero</h3>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="genero" value="masculino" /> Masculino
-        </label>
-      </div>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="genero" value="feminino" /> Feminino
-        </label>
-      </div>
 
-      {/* Estado Filter */}
-      <h3>Estado</h3>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="estado" value="novo" /> Novo
-        </label>
-      </div>
+      <h4>Categoria</h4>
+      {categories.map((category) => (
+        <div className="filter-item" key={category.id}>
+          <label>
+            <input 
+              type="checkbox" 
+              value={category.slug}
+              checked={selectedCategories.includes(category.slug)}
+              onChange={() => handleCategoryChange(category.slug)} 
+            />
+            {category.name}
+          </label>
+        </div>
+      ))}
     </div>
   );
 };
