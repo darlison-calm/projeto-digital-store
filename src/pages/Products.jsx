@@ -4,7 +4,7 @@ import { ProductListingLarge } from '../components/ProductsListingLarge/Products
 export function ProductsSection() {
   return (
     <>
-      <ProductListingLarge />
+      <ProductListingLarge/>
     </>
   );
 }
