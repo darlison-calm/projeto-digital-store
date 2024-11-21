@@ -1,61 +1,59 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
+import { FilterOptions } from '../FilterOption/FilterOptions.jsx';
 import { ProductGrid } from '../ProductGrid/ProductGrid.jsx';
-import  { ProductListing }   from '../ProductListing/ProductListing.jsx';
-import './ProductListingLarge.css'
-import '@globalStyles/reset.css'
-const FilterOptions = () => {
-  return (
-    <div className="filter-options">
-      <h3>Filtrar por</h3>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="marca" value="adidas" /> Adidas
-        </label>
-      </div>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="marca" value="k-swiss" /> K-Swiss
-        </label>
-      </div>
-      <h3>Categoria</h3>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="categoria" value="esporte-e-lazer" /> Esporte e Lazer
-        </label>
-      </div>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="categoria" value="casual" /> Casual
-        </label>
-      </div>
-      <h3>Gênero</h3>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="genero" value="masculino" /> Masculino
-        </label>
-      </div>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="genero" value="feminino" /> Feminino
-        </label>
-      </div>
-      <h3>Estado</h3>
-      <div className="filter-item">
-        <label>
-          <input type="checkbox" name="estado" value="novo" /> Novo
-        </label>
-      </div>
-    </div>
-  );
-};
-
+import './ProductListingLarge.css';
+import '@globalStyles/reset.css';
 
 export function ProductListingLarge() {
+  const [products, setProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [selectedMarks, setSelectedMarks] = useState([]);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/products');
+      const productsData = response.data.data;
+      setProducts(productsData);
+      setFilteredProducts(productsData);
+      localStorage.setItem('products', JSON.stringify(productsData));
+    } catch (error) {
+      console.error('Error fetching products', error);
+    }
+  };
+
+  useEffect(() => {
+    const cachedProducts = localStorage.getItem('products');
+    if (cachedProducts) {
+      const parsedProducts = JSON.parse(cachedProducts);
+      setProducts(parsedProducts);
+      setFilteredProducts(parsedProducts);
+    } else {
+      fetchProducts();
+    }
+
+    const intervalId = setInterval(fetchProducts, 120000);
+    return () => clearInterval(intervalId);
+  }, []);
+
+  const filterProducts = (marks) => {
+    if (marks.length === 0) {
+      setFilteredProducts(products);
+    } else {
+      const filtered = products.filter(product => marks.includes(product.mark));
+      setFilteredProducts(filtered);
+    }
+  };
+
+  const handleMarkChange = (marks) => {
+    setSelectedMarks(marks);
+    filterProducts(marks);
+  };
+
   return (
     <div className="products-section-list">
-      <FilterOptions/>   
-      <ProductGrid columns={3}></ProductGrid>
+      <FilterOptions onMarkChange={handleMarkChange} />
+      <ProductGrid columns={3} products={filteredProducts} />
     </div>
-  )
+  );
 }
-
-
