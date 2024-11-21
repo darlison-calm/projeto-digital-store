@@ -96,7 +96,7 @@ export function ProductListingLarge() {
           setSelectedCategories(categories);
         }}
       />
-      <ProductGrid columns={3} products={filteredProducts} />
+      <ProductGrid columns={3} products={filteredProducts} className="small-grid"/>
     </div>
   );
 }
