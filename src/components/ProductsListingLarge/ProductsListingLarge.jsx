@@ -18,7 +18,7 @@ export function ProductListingLarge() {
       setFilteredProducts(productsData);
       localStorage.setItem('products', JSON.stringify(productsData));
     } catch (error) {
-      console.error('Erro ao buscar produtos', error);
+      console.error('Error fetching products', error);
     }
   };
 
@@ -31,6 +31,9 @@ export function ProductListingLarge() {
     } else {
       fetchProducts();
     }
+
+    const intervalId = setInterval(fetchProducts, 120000);
+    return () => clearInterval(intervalId);
   }, []);
 
   const filterProducts = (marks) => {
@@ -43,8 +46,8 @@ export function ProductListingLarge() {
   };
 
   const handleMarkChange = (marks) => {
-    setSelectedMarks(marks);  
-    filterProducts(marks);  
+    setSelectedMarks(marks);
+    filterProducts(marks);
   };
 
   return (
