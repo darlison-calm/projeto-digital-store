@@ -28,6 +28,10 @@ function App() {
                     <Header showSearchBar={true} showShoppingCart={true} showHeader2={true} />
                     <ProductsSection />
                 </>} />
+                <Route path="/categorias" element={<>
+                    <Header showSearchBar={true} showShoppingCart={true} showHeader2={true} />
+                    EM MANUTENÇÃO...
+               </>} />
                 <Route path='/myinfo' element={<>
                     <Header showSearchBar={true} showShoppingCart={true} showHeader2={true} />
                     <MyProfile />
