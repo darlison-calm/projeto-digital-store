@@ -8,6 +8,7 @@ import '@globalStyles/reset.css';
 export function ProductListingLarge() {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedMarks, setSelectedMarks] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
