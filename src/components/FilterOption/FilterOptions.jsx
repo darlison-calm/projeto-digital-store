@@ -20,7 +20,7 @@ export const FilterOptions = ({ onMarkChange, onCategoryChange }) => {
     const fetchCategories = async () => {
       try {
         const response = await axios.get('http://localhost:3000/categories');
-        setCategories(response.data.data.filter(category => category.use_in_menu)); // Only categories that are used in the menu
+        setCategories(response.data.data.filter(category => category.use_in_menu));
       } catch (error) {
         console.error('Error fetching categories:', error);
       }

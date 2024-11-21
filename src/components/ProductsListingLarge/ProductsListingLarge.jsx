@@ -76,6 +76,7 @@ export function ProductListingLarge() {
 
     setFilteredProducts(filtered);
   }, [products, selectedMarks, selectedCategories]);
+  
 
   useEffect(() => {
     applyFilters();
