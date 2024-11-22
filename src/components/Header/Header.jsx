@@ -64,7 +64,7 @@ const Header = ({
             <Link to='/' className="text-decoration-none">Home</Link>
             <Link to="/produtos" className="text-decoration-none">Produtos</Link>
             <Link to="/categorias" className="text-decoration-none">Categorias</Link>
-            <Link to="/meus-pedidos" className="text-decoration-none">Meus Pedidos</Link>
+            <Link to="/myprofile" className="text-decoration-none">Meus Pedidos</Link>
           </div>
         )}
       </header>
