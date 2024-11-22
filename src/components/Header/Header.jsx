@@ -35,7 +35,7 @@ const Header = ({
     <>
       <header className="d-flex flex-column">
         <div className="header1">
-          <img src={logo} alt="" className='logo' />
+          <a href='/' className='header_logo'><img src={logo} alt="logo"/></a>
           {showSearchBar && <SearchBar className={"header1searchBar"} />}
           {!userName && <EntrarECadastroButtons button1Order={2} button2Order={1} className="gap-4" />}
           {showShoppingCart && <ShoppingCartButton />}
