@@ -1,14 +1,13 @@
-import '@globalStyles/reset.css'
+import '@globalStyles/reset.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './header.style.css'
-import logo from '../../assets/logo-header.svg'
-import '@globalStyles/ColorsVariables.css'
+import './header.style.css';
+import logo from '../../assets/logo-header.svg';
+import '@globalStyles/ColorsVariables.css';
 import { ShoppingCartButton } from './shoppingCart';
 import EntrarECadastroButtons from './EntrarECadastroButtons';
 import { SearchBar } from './SearchBar';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-// import React, { useEffect, useState } from 'react';
 
 const Header = ({
   showSearchBar = true,
@@ -16,18 +15,15 @@ const Header = ({
   showHeader2 = true
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // Estado do usuário, inicialmente null
 
   useEffect(() => {
+    // Lê o usuário do localStorage uma vez ao carregar o componente
     const storedUser = localStorage.getItem('user');
     if (storedUser) {
-      setUser(JSON.parse(storedUser)); // Parse para transformar de string em objeto
+      setUser(JSON.parse(storedUser)); // Atualiza o estado com os dados do usuário
     }
-  }, []);
-
-  if (!user) {
-    return <p>Carregando informações...</p>;
-  }
+  }, []);  // Com dependência vazia, isso é executado apenas uma vez
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -39,7 +35,7 @@ const Header = ({
 
   const handleLogout = () => {
     localStorage.removeItem('authToken');
-    localStorage.removeItem('userName');
+    localStorage.removeItem('user');
     window.location.href = '/';
   };
 
@@ -47,7 +43,7 @@ const Header = ({
     <>
       <header className="d-flex flex-column">
         <div className="header1">
-          <a href='/' className='header_logo'><img src={logo} alt="logo"/></a>
+          <a href="/" className="header_logo"><img src={logo} alt="logo" /></a>
           {showSearchBar && <SearchBar className={"header1searchBar"} />}
           {!user && <EntrarECadastroButtons button1Order={2} button2Order={1} className="gap-4" />}
           {showShoppingCart && <ShoppingCartButton />}
@@ -73,7 +69,7 @@ const Header = ({
 
         {showHeader2 && (
           <div className="header2">
-            <Link to='/' className="text-decoration-none">Home</Link>
+            <Link to="/" className="text-decoration-none">Home</Link>
             <Link to="/produtos" className="text-decoration-none">Produtos</Link>
             <Link to="/categorias" className="text-decoration-none">Categorias</Link>
             <Link to="/myprofile" className="text-decoration-none">Meus Pedidos</Link>
