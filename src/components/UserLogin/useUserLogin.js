@@ -41,7 +41,8 @@ export function useUserLogin() {
             }
 
             // Após o login bem-sucedido, redireciona para a home
-            navigate('/'); // Redireciona para a home
+            // Redireciona para a home
+            window.location.reload(navigate('/'));
 
         } catch (err) {
             console.error('Erro ao fazer login:', err.response ? err.response.data : err.message);
