@@ -22,7 +22,8 @@ function ProductCaurosel({ productId }) {
     };
 
     return (
-        <div className="product-carousel-container">
+        <div className="default">
+        <div className='product-carousel-container'>
             <div className='product-carousel-top'>
                 <p><strong>Home</strong> / Produtos / Tênis / {mark} / {name}</p>
             </div>
@@ -109,6 +110,7 @@ function ProductCaurosel({ productId }) {
                         COMPRAR
                     </Button>
                 </div>
+            </div>
             </div>
         </div>
     );
