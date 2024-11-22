@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import userSchema from './validarSenha'; // Importa o schema de validação Joi
+import userSchema from './validarSenha';
 
 export const calculatePasswordStrength = (password) => {
     let strength = {
@@ -45,11 +46,9 @@ export const calculatePasswordStrength = (password) => {
 
 // Hook customizado para controlar o estado e a validação do formulário
 export function useUserForm() {
-    // Estado para armazenar os erros de validação
     const [errors, setErrors] = useState({});
     const [touched, setTouched] = useState({});
-
-    // Estado para os dados do formulário
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         firstname: '',
         surname: '',
@@ -156,6 +155,7 @@ export function useUserForm() {
                     },
                 });
                 console.log('Resposta do servidor:', response);
+                navigate('/login');
             } catch (error) {
                 if (error.response) {
                     console.error('Erro da resposta:', error.response.data);

@@ -16,7 +16,7 @@ const Header = ({
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const userName = localStorage.getItem('userName');  // O nome do usuário está salvo aqui
-  
+
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
@@ -24,7 +24,13 @@ const Header = ({
   const closeMenu = () => {
     setMenuOpen(false);
   };
-  
+
+  const handleLogout = () => {
+    localStorage.removeItem('authToken');
+    localStorage.removeItem('userName');
+    window.location.href = '/';
+  };
+
   return (
     <>
       <header className="d-flex flex-column">
@@ -44,8 +50,8 @@ const Header = ({
               {menuOpen && (
                 <div className="dropdown_menu" onBlur={closeMenu}>
                   <ul>
-                    <li><Link to="/meu-perfil" className="text-decoration-none">Meu Perfil</Link></li>
-                    <li><button className="btn btn-link text-decoration-none p-0">Sair</button></li>
+                    <li><Link to="/myprofile" className="text-decoration-none">Meu Perfil</Link></li>
+                    <li><button className="btn btn-link text-decoration-none p-0" onClick={handleLogout}>Sair</button></li>
                   </ul>
                 </div>
               )}

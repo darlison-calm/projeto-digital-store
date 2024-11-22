@@ -8,7 +8,7 @@ import PaymentMethods from './PaymentMethods.jsx'
 
 export function MyProfileMenu() {
     return (
-        <Tab.Container id="left-tabs-example" defaultActiveKey="meus-pedidos">
+        <Tab.Container id="left-tabs-example" defaultActiveKey="minhas-informacoes">
             <Row className="my-profile-menu">
                 {/* Menu à esquerda */}
                 <Col sm={3} className="my-profile-menu-sidebar">
