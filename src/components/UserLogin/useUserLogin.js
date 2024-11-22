@@ -35,7 +35,7 @@ export function useUserLogin() {
 
             // Certifique-se de que o nome do usuário está correto na resposta
             if (response.data.user && response.data.user.firstname) {
-                localStorage.setItem('userName', response.data.user.firstname);
+                localStorage.setItem('user', JSON.stringify(response.data.user));
             } else {
                 console.error('Nome do usuário não encontrado na resposta da API');
             }
