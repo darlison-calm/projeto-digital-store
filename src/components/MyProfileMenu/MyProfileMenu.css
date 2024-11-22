@@ -1,3 +1,7 @@
+#left-tabs-example {
+    background-color: #F9F8FE !important;
+}
+
 /* Estilos gerais do menu */
 .my-profile-menu {
     margin: 0;
@@ -45,4 +49,37 @@
     background-color: var(--white);
     padding: 20px;
     border-radius: 5px;
+}
+
+
+/* MyInformation */
+.myinformation-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--dark-gray-2);
+}
+
+.personal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.myinformation-section-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--dark-gray-2);
+}
+
+.info-group {
+    display: flex;
+    gap: 1rem;
+
+    & .info-label {
+        color: var(--light-gray);
+    }
+
+    & .info-value {
+        color: var(--dark-gray);
+    }
 }

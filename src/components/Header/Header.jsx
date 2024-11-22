@@ -7,7 +7,8 @@ import { ShoppingCartButton } from './shoppingCart';
 import EntrarECadastroButtons from './EntrarECadastroButtons';
 import { SearchBar } from './SearchBar';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+// import React, { useEffect, useState } from 'react';
 
 const Header = ({
   showSearchBar = true,
@@ -15,7 +16,18 @@ const Header = ({
   showHeader2 = true
 }) => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const userName = localStorage.getItem('userName');  // O nome do usuário está salvo aqui
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      setUser(JSON.parse(storedUser)); // Parse para transformar de string em objeto
+    }
+  }, []);
+
+  if (!user) {
+    return <p>Carregando informações...</p>;
+  }
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -37,16 +49,16 @@ const Header = ({
         <div className="header1">
           <a href='/' className='header_logo'><img src={logo} alt="logo"/></a>
           {showSearchBar && <SearchBar className={"header1searchBar"} />}
-          {!userName && <EntrarECadastroButtons button1Order={2} button2Order={1} className="gap-4" />}
+          {!user && <EntrarECadastroButtons button1Order={2} button2Order={1} className="gap-4" />}
           {showShoppingCart && <ShoppingCartButton />}
-          {userName && (
+          {user && (
             <div className="user_info_header">
               <button
                 className="image_user_button"
                 style={{ backgroundImage: 'url(src/assets/user.svg)' }}
                 onClick={toggleMenu}
               />
-              <span className="user_name" onClick={toggleMenu}>Olá, {userName}</span>
+              <span className="user_name" onClick={toggleMenu}>Olá, {user.firstname}</span>
               {menuOpen && (
                 <div className="dropdown_menu" onBlur={closeMenu}>
                   <ul>
