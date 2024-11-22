@@ -37,7 +37,7 @@ function ControlledCarousel() {
   return (
     <Carousel className='no-arrows'>
       {bannerData.map(item => (
-        <Carousel.Item interval={2500} key={item.id}>
+        <Carousel.Item interval={3000} key={item.id}>
           <div className="d-flex align-items-center">
             <div className="banner">
               <p className='fw-bold'>{item.paragrafo1}</p>
