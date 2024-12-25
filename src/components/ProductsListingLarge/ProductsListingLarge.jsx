@@ -10,33 +10,31 @@ export function ProductListingLarge() {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [selectedMarks, setSelectedMarks] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
   const fetchProducts = useCallback(async () => {
     try {
-      setIsLoading(true);
       const response = await axios.get('http://localhost:3000/products');
       const productsData = response.data.data;
       
       const storedProducts = JSON.parse(localStorage.getItem('products') || '[]');
-      const hasNewProducts = 
-        productsData.length !== storedProducts.length || 
-        productsData.some(newProduct => 
+      
+      const isFirstFetch = products.length === 0;
+      
+      const hasNewProducts =
+        productsData.length !== storedProducts.length ||
+        productsData.some(newProduct =>
           !storedProducts.some(storedProduct => storedProduct.id === newProduct.id)
         );
-
-      if (hasNewProducts) {
+  
+      if (isFirstFetch || hasNewProducts) {
         setProducts(productsData);
         setFilteredProducts(productsData);
         localStorage.setItem('products', JSON.stringify(productsData));
       }
-      
-      setIsLoading(false);
     } catch (error) {
       console.error('Error fetching products', error);
-      setIsLoading(false);
     }
-  }, []);
+  }, [products]); 
 
   useEffect(() => {
     const cachedProducts = localStorage.getItem('products');
@@ -44,7 +42,6 @@ export function ProductListingLarge() {
       const productsData = JSON.parse(cachedProducts);
       setProducts(productsData);
       setFilteredProducts(productsData);
-      setIsLoading(false);
     }
     
     const productCheckInterval = setInterval(fetchProducts, 60000); 
@@ -80,11 +77,7 @@ export function ProductListingLarge() {
 
   useEffect(() => {
     applyFilters();
-  }, [applyFilters]);
-
-  if (isLoading) {
-    return <div>carregando produtos...</div>;
-  }
+  },[products, selectedMarks, selectedCategories] );
 
   return (
     <div className="products-section-list">
